@@ -127,7 +127,7 @@ myName is a variable which holds the memory address of a string variable.
 
 ```go
 var myName = "MadMax"
-var *string myName
+var myPointer *string
 ```
 
 
