@@ -89,8 +89,58 @@ func main() {
 }
 ```
 
+---
+
+### Pointers
+
+& has ONE meaning.
+The & symbol means: THE ADDRESS OF the variable it is next to.
+
+Example: 
+If a := 25 and we set b := &a,
+the value of B is the memory address of A.
+And its type is a pointer to an int - *int
+
+```go
+a := 25
+b := &a
+```
+
+* has TWO meanings
+1: The * symbol next to a VARIABLE means: Get the value of the variable that this
+pointer is pointing to aka DEREFERENCING.
+
+Example: 
+If we set n := *b
+the value of n is 25. Its the value stored at the momory address
+that b is pointing to.
+
+```go
+n := *n
+```
+
+2: The * symbol next to a TYPE means the variable being declared
+is a pointer and it points to an address holding the type followed by the *.
+
+Example: var *string myName
+myName is a variable which holds the memory address of a string variable.
+
+```go
+var *string myName
+```
 
 
+```go
+func main() {
+	a := 25 // int
+	b := &a // *int
+	c := &b // *(*int)
+
+	// Could have written:
+	// var c *(*int) = &b
+	fmt.Println(*c)
+}
+```
 
 
 © Esoteric Tech @https://www.youtube.com/channel/UCg_k6DwjEs1wj4DngmxDSGQ

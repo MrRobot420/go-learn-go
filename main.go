@@ -2,25 +2,14 @@ package main
 
 import "fmt"
 
-var greeting string
-
 func main() {
-	// Store a value in our variable aka INITIALIZATION
-	greeting = "What it is"
-	fmt.Println(greeting)
+	a := 25 // int
+	b := &a // *int
+	// c := &b // *(*int)
 
-	// IMPLICIT Declaration
-	// Declare AND initialize a variable using :=
-	a := 30
+	// Could have written:
+	var c *(*int) = &b
 	fmt.Println(a)
-	year := "2021"
-	myString := "Happy New Year! it's "
-	myBool := 5 > 8
-
-	// We can also use var with implicit declaration
-	var myFloat float32 = 5.8 + 2.4
-
-	fmt.Println(myString + year)
-	fmt.Println(myBool)
-	fmt.Println(myFloat)
+	fmt.Println(b)
+	fmt.Println(c)
 }
