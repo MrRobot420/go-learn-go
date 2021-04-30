@@ -106,7 +106,7 @@ a := 25
 b := &a
 ```
 
-* has TWO meanings
+\* has TWO meanings
 1: The * symbol next to a VARIABLE means: Get the value of the variable that this
 pointer is pointing to aka DEREFERENCING.
 
