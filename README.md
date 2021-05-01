@@ -53,7 +53,7 @@ string      // "Strings look like this and are surrounded by (double) quotes."
 
 ---
 
-### How do we create a variable?
+## How do we create a variable?
 
 Explicit Declaration
 We have to DECLARE with - var | variableName | type
@@ -91,7 +91,7 @@ func main() {
 
 ---
 
-### Pointers
+## Pointers
 
 & has ONE meaning.
 The & symbol means: THE ADDRESS OF the variable it is next to.
@@ -143,9 +143,11 @@ func main() {
 }
 ```
 
-### Control statements
+---
 
-If / else statements:
+## Control statements
+
+#### 1. If / else statements:
 ```go
 func main() {
     x := 5
@@ -261,5 +263,69 @@ func main() {
 }
 ```
 
+---
+
+### Slices and Arrays
+
+An Array has a fixed length.
+Slices are of flexible length.
+Slices are just like Arrays, but are only a reference to an array (internally).
+
+In order to make a slice, you need to call ```make()```. \
+Make takes up to 3 params. \
+The type, the length and the max size (capacity).
+```go
+func main() {
+    // mySlice := make(<type>, <length>, <capacity>)
+    mySlice := make([]string, 3, 8)
+
+    fmt.Printf("Length is: %d \nCapacity is: %d\n", len(mySlice), cap(mySlice))
+    fmt.Println(mySlice)
+}
+```
+
+Alternate way of initializing a slice:
+```go
+func main() {
+    mySlice := []string{"apple", "orange", "peach"}
+    fmt.Printf("Length is: %d \nCapacity is: %d\n", len(mySlice), cap(mySlice))
+    fmt.Println(mySlice)
+
+    // print a slice of the slice ^^:
+    fmt.Println(mySlice[1:4])   // [1:4] means: from index 1 up to but not including index 4
+
+    fmt.Println(mySlice[:4]) // starting at 0 up to index 3
+
+    fmt.Println(mySlice[1:]) // starting at 1 up to the last value (included!)
+}
+```
+
+Append values to a slice:
+```go
+func main() {
+    mySlice := []int{1, 2, 3, 4, 5, 6, 7}
+    mySlice = append(mySlice, 8)
+
+    fmt.Printf("Length is: %d \nCapacity is: %d\n", len(mySlice), cap(mySlice))
+
+    fmt.Println(mySlice)
+}
+```
+
+NOTICE: the capacity of the slice doubles every time that the length of the slice is higher than the previous capacity! \
+Here the cap was 7. By adding the 8th value, the cap got updated to 14.
+
+When using the ```make()``` function, you can prevent this.
+
+You can also append values of a second slice to another slice.
+```go
+func main() {
+    initialSlice := []int{1, 2, 3, 4, 5, 6, 7}
+    newSlice := []int{87, 56, 78}
+
+    initialSlice = append(initialSlice, newSlice...)    // Notice the dots. "elipsis"
+    fmt.Println(initialSlice)
+}
+```
 
 © Esoteric Tech @https://www.youtube.com/channel/UCg_k6DwjEs1wj4DngmxDSGQ
