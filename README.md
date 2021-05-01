@@ -3,6 +3,14 @@
 ![alt text](https://yuriktech.com/images/Golang.png)
 
 
+## TABLE OF CONTENTS:
+
+1. <a href="https://github.com/MrRobot420/go-learn-go#variables">Variables</a>
+2. <a href="https://github.com/MrRobot420/go-learn-go#pointers">Pointers</a>
+3. <a href="https://github.com/MrRobot420/go-learn-go#control-statements">Control statements</a>
+4. <a href="https://github.com/MrRobot420/go-learn-go#slices-and-arrays">Slices and Arrays
+
+
 ## Variables:
 
 ### Intro: 
