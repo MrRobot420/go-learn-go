@@ -143,5 +143,123 @@ func main() {
 }
 ```
 
+### Control statements
+
+If / else statements:
+```go
+func main() {
+    x := 5
+    if x < 10 {
+        fmt.Println("x is less than 10.")
+    } else {
+        fmt.Println("x is greater than or equals 10.")
+    }
+    fmt.Println("This will run no matter what.")
+}
+```
+
+GO is block scoped.
+However you can define a variable in the if part that will also be visible to else:
+```go
+func main() {
+    x := 5
+    if a:= x -3; x < 10 {
+        fmt.Println("x is less than 10.")
+    } else {
+        fmt.Println(a)  // will work
+    }
+}
+```
+
+For loops:
+```go
+func main() {
+    for i := 0; i < 5; i++ {
+        fmt.Println(i)
+    }
+}
+```
+
+For loops for lists:
+```go
+func main() {
+    names := []string{"Sam", "Tom", "Joe"}
+    for i := 0; i < len(names); i++ {
+        fmt.Println(names[i])
+    }
+}
+```
+
+"While" loops in GO are just for loops in another format.
+```go
+func main() {
+    i := 0
+    for i < 5 {
+        fmt.Println(i)
+        i += 1
+    }
+}
+```
+
+Endless loops in GO:
+```go
+func main() {
+    i := 0
+    for {
+        fmt.Println(i)
+        i += 1
+        if i > 5 {
+            break
+        }
+    }
+}
+```
+
+For loops for a range of objects
+```go
+func main() {
+    names := []string{"Sam", "Tom", "Joe"}
+    for k, v := range names {
+        fmt.Println(k, v)
+    }
+}
+```
+
+Switch statements:
+```go
+import (
+    "fmt" 
+    "time"
+)
+
+func main() {
+    switch time.Now().Weekday() {
+    case time.Saturday:
+        fmt.Println("It's Saturday.")
+    case time.Sunday:
+        fmt.Println("It's Sunday.")
+    default:
+        fmt.Println("Today is a weekday.")
+    }
+}
+```
+
+
+IMPORTANT: Go BREAKS the switch statement, if the case was found! No fallthrough like in other languages where you have to "break" the switch explicitly.
+```go
+func main() {
+    switch 2 {
+    case 1:
+        fmt.Println("1")
+        fallthrough
+    case 2:
+        fmt.Println("2")
+        fallthrough
+    case 3:
+        fmt.Println("3")
+    }
+}
+```
+
 
 © Esoteric Tech @https://www.youtube.com/channel/UCg_k6DwjEs1wj4DngmxDSGQ
